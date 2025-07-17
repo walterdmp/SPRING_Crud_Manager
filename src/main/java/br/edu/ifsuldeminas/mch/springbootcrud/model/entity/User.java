@@ -1,6 +1,5 @@
 package br.edu.ifsuldeminas.mch.springbootcrud.model.entity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -86,17 +85,23 @@ public class User {
 	}
 	
 	public enum Gender {
-		M('M'),
-		F('F');
+		M('M', "Masculino"),
+		F('F', "Feminino");
 		
 		private Character gender;
+		private final String description;
 		
-		private Gender(Character gender) {
+		private Gender(Character gender, String description) {
 			this.gender = gender;
+			this.description = description;
 		}
 		
 		public Character getGender() {
 			return gender;
+		}
+
+		public String getDescription() {
+			return description;
 		}
 	}
 }

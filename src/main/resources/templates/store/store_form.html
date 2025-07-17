@@ -6,30 +6,42 @@
 </head>
 <body>
 <div th:replace="~{fragments/menu :: menu}"></div>
-<div class="container m-2">
-    <div class="offset-md-4">
-        <h2>Loja</h2>
-        <form action="#" method="POST" th:action="@{/stores/new}" th:object="${store}">
-            <input type="hidden" id="id" th:field="*{id}">
+<div class="container my-4">
+    <div class="card">
+        <div class="card-header">
+            <h3 th:text="${store.id == null} ? 'Nova Loja' : 'Editar Loja'"></h3>
+        </div>
+        <div class="card-body">
+            <form action="#" method="POST" th:action="@{/stores/new}" th:object="${store}">
+                <input type="hidden" id="id" th:field="*{id}">
             
-            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
-            <input type="text" th:field="*{name}" class="form_control mb-3 col-8" placeholder="Nome">
-            <br/>
-            
-            <span th:if="${#fields.hasErrors('cnpj')}" th:errors="*{cnpj}" class="text-danger"></span>
-            <input type="text" th:field="*{cnpj}" class="form_control mb-3 col-8" placeholder="CNPJ">
-            <br/>
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" th:field="*{name}" class="form-control" placeholder="Nome da Loja">
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cnpj">CNPJ:</label>
+                    <input type="text" id="cnpj" th:field="*{cnpj}" class="form-control" placeholder="00.000.000/0000-00">
+                    <span th:if="${#fields.hasErrors('cnpj')}" th:errors="*{cnpj}" class="text-danger"></span>
+                </div>
 
-            <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="text-danger"></span>
-            <input type="text" th:field="*{phone}" class="form_control mb-3 col-8" placeholder="Telefone">
-            <br/>
+                <div class="form-group">
+                    <label for="phone">Telefone:</label>
+                    <input type="text" id="phone" th:field="*{phone}" class="form-control" placeholder="(00) 00000-0000">
+                    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="text-danger"></span>
+                </div>
 
-            <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="text-danger"></span>
-            <input type="text" th:field="*{address}" class="form_control mb-3 col-8" placeholder="Endereço">
-            <br/>
+                <div class="form-group">
+                    <label for="address">Endereço:</label>
+                    <input type="text" id="address" th:field="*{address}" class="form-control" placeholder="Rua, Número, Bairro, Cidade">
+                    <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="text-danger"></span>
+                </div>
 
-            <button type="submit" class="btn btn-primary col-2">Salvar</button>
-        </form>
+                <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+            </form>
+        </div>
     </div>
 </div>
 </body>

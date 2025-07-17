@@ -7,9 +7,41 @@
 <body>
     <div th:replace="~{fragments/menu :: menu}"></div>
 
-    <div class="container my-3">
-        <h1>Bem-vindo à Loja de Botinas</h1>
-        <p>Use o menu acima para navegar entre as seções de Lojas, Botinas e Usuários.</p>
+    <div class="container my-5">
+        <div class="jumbotron bg-light p-5 rounded-lg mb-4">
+            <h1 class="display-4">Painel de Controle</h1>
+            <hr class="my-4">
+            <p>Selecione um dos módulos abaixo para começar a trabalhar.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-center mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Gerenciar Lojas</h5>
+                        <a th:href="@{/stores}" class="btn btn-primary">Ir para Lojas</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Gerenciar Botinas</h5>
+                        <a th:href="@{/boots}" class="btn btn-primary">Ir para Botinas</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Gerenciar Usuários</h5>
+                        <a th:href="@{/users}" class="btn btn-primary">Ir para Usuários</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -6,34 +6,38 @@
 </head>
 <body>
 <div th:replace="~{fragments/menu :: menu}"></div>
-<div class="container my-3">
-    <h1>Lojas</h1>
-    <div>
-        <a th:href="@{/stores/form}" class="btn btn-primary mb-3 float-right">Adicionar Loja</a>
+<div class="container my-4">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between">
+            <h3>Lojas Cadastradas</h3>
+            <a th:href="@{/stores/form}" class="btn btn-primary">Adicionar Loja</a>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CNPJ</th>
+                    <th>Telefone</th>
+                    <th>Endereço</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="store : ${stores}">
+                    <td th:text="${store.name}"></td>
+                    <td th:text="${store.cnpj}"></td>
+                    <td th:text="${store.phone}"></td>
+                    <td th:text="${store.address}"></td>
+                    <td>
+                        <a th:href="@{/stores/update/{id}(id=${store.id})}" class="btn btn-sm btn-warning">Alterar</a>
+                        <a th:href="@{/stores/delete/{id}(id=${store.id})}" class="btn btn-sm btn-danger">Deletar</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <table class="table table-striped table-responsive-md">
-        <thead>
-        <tr>
-            <th>Nome</th>
-            <th>CNPJ</th>
-            <th>Telefone</th>
-            <th>Endereço</th>
-            <th>Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="store : ${stores}">
-            <td th:text="${store.name}"></td>
-            <td th:text="${store.cnpj}"></td>
-            <td th:text="${store.phone}"></td>
-            <td th:text="${store.address}"></td>
-            <td>
-                <a th:href="@{/stores/update/{id}(id=${store.id})}" class="btn btn-primary">Alterar</a>
-                <a th:href="@{/stores/delete/{id}(id=${store.id})}" class="btn btn-danger">Deletar</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
 </div>
 </body>
 </html>

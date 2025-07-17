@@ -22,7 +22,7 @@ public class Boot {
     @Min(value = 1, message = "O tamanho deve ser maior que zero.")
     private Integer size;
 
-    @NotNull(message = "O preço не pode ser nulo.")
+    @NotNull(message = "O preço não pode ser nulo.")
     @Min(value = 0, message = "O preço não pode ser negativo.")
     private Double price;
 

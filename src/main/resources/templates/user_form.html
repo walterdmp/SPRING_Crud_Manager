@@ -2,12 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-	<div th:replace="cabecalho :: head"></div>
+	<div th:replace="~{fragments/cabecalho :: head}"></div>
 	
 	<title>Crud Manager - Usuário</title>
 </head>
 
 <body>
+<div th:replace="~{fragments/menu :: menu}"></div>
 	<div class="container m-2">
 		<div class="offset-md-4">
 			<h2>Usuário</h2>

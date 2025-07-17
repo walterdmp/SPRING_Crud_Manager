@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="~{fragments/cabecalho :: head}"></div>
+    <title>Formulário de Loja</title>
+</head>
+<body>
+<div th:replace="~{fragments/menu :: menu}"></div>
+<div class="container m-2">
+    <div class="offset-md-4">
+        <h2>Loja</h2>
+        <form action="#" method="POST" th:action="@{/stores/new}" th:object="${store}">
+            <input type="hidden" id="id" th:field="*{id}">
+            
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+            <input type="text" th:field="*{name}" class="form_control mb-3 col-8" placeholder="Nome">
+            <br/>
+            
+            <span th:if="${#fields.hasErrors('cnpj')}" th:errors="*{cnpj}" class="text-danger"></span>
+            <input type="text" th:field="*{cnpj}" class="form_control mb-3 col-8" placeholder="CNPJ">
+            <br/>
+
+            <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="text-danger"></span>
+            <input type="text" th:field="*{phone}" class="form_control mb-3 col-8" placeholder="Telefone">
+            <br/>
+
+            <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="text-danger"></span>
+            <input type="text" th:field="*{address}" class="form_control mb-3 col-8" placeholder="Endereço">
+            <br/>
+
+            <button type="submit" class="btn btn-primary col-2">Salvar</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
